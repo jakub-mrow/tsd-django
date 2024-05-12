@@ -14,6 +14,7 @@ class Task(models.Model):
     priority = models.CharField(max_length=9, choices=PRIORITY_CHOICES, help_text="Task priority", default="Low", blank=True, null=True)
     estimation = models.FloatField(help_text="Task estimation in hours", default=0.0, blank=True, null=True)
 
+
 class Car(models.Model):
     model = models.CharField(max_length=128, help_text="Car model")
     year = models.IntegerField(help_text="Car year")

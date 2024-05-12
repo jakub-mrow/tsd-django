@@ -11,4 +11,5 @@ router.register("cars", views.CarViewSet, "car")
 urlpatterns = [
     re_path("", include(router.urls)),
     path('hello-world', views.first_endpoint),
+    path('filter-tasks', views.filter_tasks)
 ]

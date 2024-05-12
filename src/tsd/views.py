@@ -17,6 +17,13 @@ class TaskViewSet(viewsets.ModelViewSet):
     queryset = models.Task.objects.all()
 
 
+@api_view(['GET'])
+def filter_tasks(request):
+    if request.method == 'GET':
+        tasks = models.Task.objects.filter(estimation__gt=5)
+        serializer = serializers.TaskSerializer(tasks, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
 @api_view(['GET', 'POST'])
 def first_endpoint(request):
     if request.method == 'GET':
